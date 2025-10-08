@@ -2,7 +2,7 @@ import mysql from 'mysql2';
 
 const connection = mysql.createConnection({
     host: 'server-bd-cn1.mysql.database.azure.com',
-    user: 'useradmin',
+    user: 'useradmin@server-bd-cn1',
     password: 'admin@123',
     database: 'anacarolina',
     port: 3306,
