@@ -203,9 +203,10 @@ app.get('/api/locacoes-cliente', (req, res) => {
 
 // ----------------- FRONTEND BUILD -----------------
 app.use(express.static(path.join(__dirname, "../build")));
-app.get(/.*/, (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
+
 
 
 // ----------------- START SERVER -----------------
