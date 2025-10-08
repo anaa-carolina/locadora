@@ -14,9 +14,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('API CarNow está rodando!');
-});
 
 // ----------------- CLIENTES -----------------
 
@@ -203,12 +200,9 @@ app.get('/api/locacoes-cliente', (req, res) => {
 
 // ----------------- FRONTEND BUILD -----------------
 app.use(express.static(path.join(__dirname, "../build")));
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, '../build', 'index.html'));
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
-
-
-
 
 
 // ----------------- START SERVER -----------------
