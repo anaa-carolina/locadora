@@ -30,33 +30,28 @@ app.post('/api/clientes', (req, res) => {
   );
 });
 
-// Login
+// ----------------- LOGIN -----------------
 app.post('/api/login', (req, res) => {
   const { email, senha } = req.body;
-  db.query(
-    'SELECT * FROM Clientes WHERE email = ? AND senha = ?',
-    [email, senha],
-    (err, results) => {
-      if (err) return res.status(500).send('Erro ao realizar login.');
-      if (results.length === 0) return res.status(401).send('Credenciais inválidas.');
-      res.json({ id: results[0].id, nome: results[0].nome });
-    }
-  );
-});
 
-app.post('/api/login', (req, res) => {
-  const { email, senha } = req.body;
-  console.log('Tentativa de login:', email, senha); // log útil
+  if (!email || !senha) {
+    return res.status(400).send('Email e senha são obrigatórios.');
+  }
+
+  console.log('Tentativa de login:', email); // log útil
+
   db.query(
-    'SELECT * FROM Clientes WHERE email = ? AND senha = ?',
+    'SELECT id, nome, email FROM Clientes WHERE email = ? AND senha = ?',
     [email, senha],
     (err, results) => {
       if (err) {
         console.error('Erro SQL:', err);
         return res.status(500).send('Erro interno no servidor.');
       }
-      if (results.length === 0) return res.status(401).send('Credenciais inválidas.');
-      res.json({ id: results[0].id, nome: results[0].nome });
+
+      if (results.length === 0) {
+        return res.status(401).send('Credenciais inválidas.');
+      }
     }
   );
 });
