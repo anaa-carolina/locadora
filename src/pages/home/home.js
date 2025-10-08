@@ -3,7 +3,7 @@ import './home.css';
 import Header from '../../components/Header/Header.js';
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL || "";
 
 function Home() {
   const [veiculos, setVeiculos] = useState([]);
