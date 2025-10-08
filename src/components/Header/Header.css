@@ -1,0 +1,55 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: grey;
+    box-shadow: 0 2px 4px rgba(24, 24, 24, 0.253);
+    height: 50px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.logo2 {
+    color: #ffe59a;
+    text-decoration: none;
+}
+
+.spacer {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav a {
+    margin: 5px;
+    color: grey;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.nav a:hover {
+    text-decoration: underline #ffe59a solid 2px;
+}
+
+.search-input {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 3px solid #ffe59a;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
